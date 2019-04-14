@@ -2,38 +2,94 @@
 <html lang="en">
 
 <head>
-  <title>Bookmark Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bookmarks Page</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/index.css"></link>
 </head>
 
 <body>
+
   <div class="container">
     <div class="error-container"></div>
-    <h1>Bookmark Page</h1>
-    <form id="js-shopping-list-form">
-      <label for="shopping-list-entry">Add an item</label>
-      <input type="text" name="shopping-list-entry" class="js-shopping-list-entry" placeholder="e.g., broccoli">
-      <button type="submit">Add item</button>
-      <div>
-        <input type="checkbox" id="filter-checked" class="filter-checked js-filter-checked" />
-        <label for="filter-checked">Hide Checked</label>
+    <div class="row">
+        <header role="banner">
+          <h1>My Bookmarks</h1>
+        </header>
+    </div>
+
+    <!-- Add Bookmarks Form -->
+    <section role="region">
+      <div class="row">
+        <div class="form-container">
+            <form id="js-add-bookmark-form">
+              <div class="form-group">
+                <label for="bookmark-title">Title</label>
+                <input type="text" name="bookmark-title" class="form-control js-bookmark-title" placeholder="Enter a title" aria-label="bookmark-title">
+              </div>
+              <div class="form-group">
+                <label for="bookmark-url">URL</label>
+                <input type="text" name="bookmark-url" class="form-control js-bookmark-url" placeholder="https://www.google.com" aria-label="bookmark-url">
+              </div>
+              <div class="form-group">
+                <label for="bookmark-description">Description</label>
+                <input type="text" name="bookmark-description" class="form-control js-bookmark-description" placeholder="Describe Your Page" aria-label="bookmark-description">
+              </div>
+              <div class="form-group">
+              <label for="rating">Rating</label>
+              <select name="rating" class="js-bookmark-rating" aria-label="rating-dropdown">
+                <option value="1">1-Star</option>
+                <option value="2">2-Stars</option>
+                <option value="3">3-Stars</option>
+                <option value="4">4-Stars</option>
+                <option value="5">5-Stars</option>
+              </select>
+              </div>
+              <div class="form-group">
+              <button type="submit" class="btn btn-success add-bookmark-button">Submit</button>
+              </div>  
+            </form>
+        </div>
       </div>
-      <div>
-        <label for="js-shopping-list-search-entry">Search:</label>
-        <input type="text" name="shopping-list-search-entry" class="js-shopping-list-search-entry" />
+    </section>
+
+    <!-- Filter Minimum Rating -->
+    <section role="region">
+      <div class="row">
+        <div class="rating-filter">
+          Sort by bookmarks with at least:
+          <select name="Rating filter" class="js-bookmark-rating-filter" aria-label="rating-filter-dropdown">
+            <option value="1">1-Star</option>
+            <option value="2">2-Stars</option>
+            <option value="3">3-Stars</option>
+            <option value="4">4-Stars</option>
+            <option value="5">5-Stars</option>
+          </select>
+        </div>
       </div>
-    </form>
-    <ul class="shopping-list js-shopping-list">
-    </ul>
+    </section>
+
+  <!-- Bookmarks List -->
+    <main role="main" aria-live="polite">
+      <section role="region">
+        <div class="row">
+            <div class="panel-group bookmarks-list js-bookmarks-list" id="accordion" role="tablist" aria-multiselectable="true">
+            </div>
+        </div> 
+      </section>
+    </main>
+
   </div>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script type="text/javascript" src="scripts/api.js"></script>
   <script type="text/javascript" src="scripts/store.js"></script>
-  <script type="text/javascript" src="scripts/shopping-list.js"></script>
+  <script type="text/javascript" src="scripts/bookmark.js"></script>
   <script type="text/javascript" src="scripts/index.js"></script>
-
 </body>
 </html>

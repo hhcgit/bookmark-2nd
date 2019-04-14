@@ -44,43 +44,44 @@ const api = (function(){
         return data;
       });
   };
+  function getBookmarks(){
+    return listApiFetch(`${BASE_URL}/bookmarks`);
+  }
 
-  const getItems = function() {
-    return listApiFetch(BASE_URL + '/bookmarks');
-  };
-
-  const createItem = function(url) {
-    const newUrl = JSON.stringify({ url });
-    return listApiFetch(BASE_URL + '/bookmarks', {
+  // POST
+  function addBookmark(object){
+    const newItem = JSON.stringify(object);
+    return listApiFetch(`${BASE_URL}/bookmarks`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: newUrl
+      headers: { 'Content-Type': 'application/json' },
+      body: newItem
     });
-  };
+  }
 
-  const updateItem = function(id, updateData) {
+  // PATCH
+  function editBookmark(id, updateData){
     const newData = JSON.stringify(updateData);
-    return listApiFetch(BASE_URL + '/bookmarks/' + id, {
+    return listApiFetch(`${BASE_URL}/bookmarks/${id}`, {
       method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: newData
     });
-  };
+  }
 
-  const deleteItem = function(id) {
-    return listApiFetch(BASE_URL + '/bookmarks/' + id, {
-      method: 'DELETE'
+  // DELETE
+  function deleteBookmark(id){
+    return fetch(`${BASE_URL}/bookmarks/${id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: ''
     });
-  };
+  }
 
   return {
-    getItems,
-    createItem,
-    updateItem,
-    deleteItem,
+    getBookmarks,
+    addBookmark,
+    editBookmark,
+    deleteBookmark,
   };
+
 }());

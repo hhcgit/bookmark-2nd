@@ -1,76 +1,46 @@
 * {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif'
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
+h1 {
+  font-size:24px;
 }
 
-button, input[type="text"] {
-  padding: 5px;
+.rating-filter {
+  margin-bottom: 10px;
 }
 
-button:hover {
-  cursor: pointer;
-}
-
-button:hover:disabled {
-  cursor: default;
-}
-
-.hidden {
+.expand {
   display: none;
 }
 
-#shopping-list-item {
-  width: 250px;
+.bookmark-rating {
+  float: right;
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.shopping-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.shopping-list > li {
-  margin-bottom: 20px;
-  border: 1px solid grey;
-  padding: 20px;
-}
-
-.shopping-item {
+.js-bookmark-rating {
   display: block;
-  color: grey;
-  font-style: italic;
-  font-size: 20px;
-  margin-bottom: 15px;
 }
 
-.shopping-item__checked {
-  text-decoration: line-through;
+.form-container {
+  border: 1px solid black;
+  padding: 10px;
+  margin: center;
 }
 
-.error-content {
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  border: 2px solid red;
-  background-color: lightsalmon;
+.panel-body {
+  padding-bottom: 0px;
 }
 
-.error-content p {
-  margin-top: 1px;
-  padding: 7px;
+.click-to-expand-prompt {
+  text-align: center;
 }
 
-.error-content button {
-  font-size: 6pt;
-  background-color: red;
-  color: white;
-  position: relative;
-  left: 80%;
+a {
+  font-size: 18px;
+  text-decoration: none;
+}
+.form-container{
+  width:50%;
 }
