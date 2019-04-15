@@ -86,13 +86,12 @@ const BOOKMARKS = (function(){
     function handleNewBookmarkSubmit(){
       $('#js-add-bookmark-form').submit(function(event){
         event.preventDefault();
-        const values = {};
-        values.title = $('.js-bookmark-title').val();
-        values.url = $('.js-bookmark-url').val();
-        values.description = $('.js-bookmark-description').val();
-        values.rating = $('.js-bookmark-rating').val();
-        // $('#js-add-bookmark-form').trigger('reset');
-        api.addBookmark(values)
+        const page = {};
+        page.title = $('.js-bookmark-title').val();
+        page.url = $('.js-bookmark-url').val();
+        page.desc = $('.js-bookmark-description').val();
+        page.rating = $('.js-bookmark-rating').val();
+        api.addBookmark(page)
           .then((newBookmark) => {
             store.addBookmark(newBookmark);
             render();
