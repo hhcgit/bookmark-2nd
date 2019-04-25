@@ -1,12 +1,13 @@
-/* global shoppingList, store, api */
+'use strict';
 
-$(document).ready(function(){
-    BOOKMARKS.bindEventListeners();
-  
-    api.getBookmarks()
-      .then((bookmarks) => {
-        bookmarks.forEach((bookmark) => store.addBookmark(bookmark));
-        BOOKMARKS.render();
-      })
-      .catch(err => console.log(err.message));
-  });
+/* global $, store, api, bookmarksList */
+
+$(document).ready(function() {
+  bookmarksList.bindEventListeners();
+
+  api.readBookmarks()
+    .then((bookmarks) => {
+      bookmarks.forEach((bookmark) => store.addBookmark(bookmark));
+      bookmarksList.render();
+    });
+});
