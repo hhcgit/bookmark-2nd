@@ -7,8 +7,6 @@ const bookmarksList = ( function() {
   
   function render() {
     let bookmarks = [...store.bookmarks];
-
-    // Filter on minRating
     if(store.minRating) {
       bookmarks = bookmarks.filter(bookmark => bookmark.rating <= store.minRating);
     }
@@ -43,10 +41,8 @@ const bookmarksList = ( function() {
       const bmUrl = $('#add-bookmark-url-input').val();
       const bmDesc = $('#add-bookmark-desc-textarea').val();
       let bmRating = $('#add-bookmark-rating-dropdown').val();
-      // Check bmRating and set to 5(default) if null
       if(!bmRating) bmRating = 5;
 
-      // reset the form
       $('.js-add-bookmark-form')[0].reset();
       
       api.createBookmark(bmTitle, bmUrl, bmDesc, bmRating)
