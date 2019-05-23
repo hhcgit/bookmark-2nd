@@ -1,46 +1,125 @@
-* {
+
+* body {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif'
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-h1 {
-  font-size:24px;
+body {
+  background-color: rgb(228, 231, 235);
 }
 
-.rating-filter {
-  margin-bottom: 10px;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.expand {
-  display: none;
+.button {
+  background-color: black; 
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  max-height: 100px;
+  max-width: 200px;
+  box-sizing: content-box;
 }
 
-.bookmark-rating {
-  float: right;
+.js-add-bookmark {
+  margin-top: 4em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.js-bookmark-rating {
-  display: block;
+.js-add-bookmark > * {
+  background-color: black;
+  border-radius: 2px;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  width: 100%;
 }
 
-.form-container {
-  border: 1px solid black;
-  padding: 10px;
-  margin: center;
-}
-
-.panel-body {
-  padding-bottom: 0px;
-}
-
-.click-to-expand-prompt {
+.js-add-bookmark > section {
   text-align: center;
 }
 
-a {
-  font-size: 18px;
-  text-decoration: none;
+.description {
+  height: 30%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.form-container{
-  width:50%;
+
+.js-input {
+  text-align: center;
+}
+
+.bookmark-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  border-radius: 4px;
+  border: 1px solid grey;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  width: 45%;
+}
+
+@media (max-width: 600px) {
+  li {
+    width: 80%;
+  }
+
+  .js-add-bookmark {
+    width: 60%;
+  }
+}
+
+@media (min-width: 600px) {
+  li {
+    margin-right: 1em;
+  }
+}
+
+.bookmark-inputs > .button {
+  max-height: 50px;
+  max-width: 100px;
+  margin-top: 1em;
+}
+
+.js-edit-submit-btn {
+  background-color: black; 
+  color: white;
+  padding: 5px 24px;
+  text-decoration: none;
+  font-size: 14px;
+  max-height: 50px;
+  max-width: 100px;
+  display: flex;
+}
+
+.error-content {
+  color: red;
+  font-size: 24px;
+}
+
+.error-container {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.js-edit-rating, .js-edit-description {
+  margin-bottom: .5em;
+  width: 50%;
 }
